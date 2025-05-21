@@ -1,0 +1,133 @@
+[
+    {
+        "id": "echo_tab",
+        "type": "tab",
+        "label": "EchoBeacon Dashboard",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "button_mqtt",
+        "type": "ui_button",
+        "z": "echo_tab",
+        "name": "Ativar Moto",
+        "group": "echo_group",
+        "order": 0,
+        "width": 6,
+        "height": 2,
+        "passthru": false,
+        "label": "Localizar Moto",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "fa-motorcycle",
+        "payload": "{\"comando\":\"ativar\",\"moto\":{\"placa\":\"ABC1234\",\"modelo\":\"MOTTU_E\"}}",
+        "payloadType": "json",
+        "topic": "fiap/iot/echobeacon/comando",
+        "topicType": "str",
+        "x": 160,
+        "y": 100,
+        "wires": [
+            [
+                "mqtt_out",
+                "debug_json"
+            ]
+        ]
+    },
+    {
+        "id": "mqtt_out",
+        "type": "mqtt out",
+        "z": "echo_tab",
+        "name": "Enviar para ESP32",
+        "topic": "",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "mqtt_broker",
+        "x": 400,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "debug_json",
+        "type": "debug",
+        "z": "echo_tab",
+        "name": "Mensagem enviada",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 400,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "0a301560f8898dca",
+        "type": "ui_template",
+        "z": "echo_tab",
+        "group": "echo_group",
+        "name": "",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "format": "<style>\n    .botao-verde {\n        margin-top: 50% !important;\n    }\n</style>",
+        "storeOutMessages": true,
+        "fwdInMessages": true,
+        "resendOnRefresh": true,
+        "templateScope": "local",
+        "className": "",
+        "x": 160,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "echo_group",
+        "type": "ui_group",
+        "name": "",
+        "tab": "echo_ui_tab",
+        "order": 1,
+        "disp": false,
+        "width": "6",
+        "collapse": false,
+        "className": "botao-verde"
+    },
+    {
+        "id": "mqtt_broker",
+        "type": "mqtt-broker",
+        "name": "HiveMQ Broker",
+        "broker": "broker.hivemq.com",
+        "port": "1883",
+        "clientid": "node_red_dashboard_echo",
+        "usetls": false,
+        "compatmode": false,
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "closeTopic": "",
+        "closePayload": "",
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": ""
+    },
+    {
+        "id": "echo_ui_tab",
+        "type": "ui_tab",
+        "name": "EchoBeacon",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    }
+]

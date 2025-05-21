@@ -1,2 +1,2 @@
+*.ino linguagem = c++
 *.cpp linguagem = c++
-*.h linguagem = c++
