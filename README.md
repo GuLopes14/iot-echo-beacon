@@ -35,6 +35,9 @@ Este sistema visa resolver o problema de localizar rapidamente as motos no páti
 - **React-Native**: Para a interface mobile.
 - **Node-RED**: Para processamento de dados MQTT e visualização em um painel de controle.
 
+## Localhost para acesso da ui do node-red:
+`http://localhost:1880/ui`
+
 ### Configuração Wokwi 🕹️
 <div align="center">
   <img src="esp32.png" alt="alt text"/>
